@@ -18,6 +18,7 @@
     "start": "next start",
     "startRedis": "docker run --name redis -p 6379:6379 -d redis",
     "tearDownRedis": "docker kill redis && docker rm redis",
+    "test": "yarn lint",
     "lint": "eslint ."
   },
   "browserslist": [
