@@ -6,3 +6,7 @@ This project use the following libs:
 - UI layout [ant design pro](https://pro.ant.design/index-cn)
 - chats components [antv](https://antv.alipay.com/zh-cn/index.html)
 - fetch lib [developit/unfetch](https://github.com/developit/unfetch)
+
+
+# Contribute Guide
+- [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)

@@ -15,10 +15,10 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "start": "next start",
+    "startRedis": "docker run --name redis -p 6379:6379 -d redis",
+    "tearDownRedis": "docker kill redis && docker rm redis",
+    "lint": "eslint ."
   },
   "browserslist": [
     ">0.2%",
@@ -27,6 +27,11 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@babel/plugin-proposal-decorators": "7.3.0"
+    "@babel/plugin-proposal-decorators": "7.3.0",
+    "eslint": "5.15.1",
+    "eslint-config-airbnb": "17.1.0",
+    "eslint-plugin-import": "2.16.0",
+    "eslint-plugin-jsx-a11y": "6.2.1",
+    "eslint-plugin-react": "7.12.4"
   }
 }
