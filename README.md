@@ -11,4 +11,3 @@ This project use the following libs:
 # Contribute Guide
 - [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
 
-
