@@ -24,6 +24,6 @@ docker rmi $(docker images --filter "dangling=true" -q)
 
 echo 'Dump Docker image'
 
-docker save --output front.$time.tar front:$time
+docker save --output front.tar front:$time
 
 ls -al --block-size=M
