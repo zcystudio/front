@@ -10,5 +10,4 @@ dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 echo 'current time:' $time
 
-cd ..
 docker build --no-cache -t front:$time $dir/..
