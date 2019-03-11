@@ -13,9 +13,9 @@
     "react-scripts": "2.1.5"
   },
   "scripts": {
-    "dev": "next",
+    "dev": "NODE_ENV=dev node server.js",
     "build": "next build",
-    "start": "next start",
+    "start": "NODE_ENV=production node server.js",
     "startRedis": "docker run --name redis -p 6379:6379 -d redis",
     "tearDownRedis": "docker kill redis && docker rm redis",
     "test": "yarn lint",
