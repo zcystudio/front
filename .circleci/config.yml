@@ -35,3 +35,9 @@ jobs:
 
       # run tests!
       - run: yarn test
+
+
+notify:
+  webhooks:
+    - url: http://182.254.206.166:7001/webhook
+
