@@ -1,23 +1,37 @@
+#!/usr/bin/groovy
+
+
+def remote = [:]
+remote.name = 'fdev'
+remote.host = '172.16.0.16'
+remote.user = 'ubuntu'
+remote.allowAnyHosts = true
+remote.password = 'ustc117zcy!'
+
 pipeline {
   agent {
-    docker 'node:8.11.4'
+    node {
+      label 'master'
+    }
   }
-
   stages {
-    stage('Build') {
+    stage('Ping Remote') {
       steps {
-        sh 'env'
-        sh 'yarn'
+        sshCommand remote: remote, command: 'ls -al'
       }
     }
-    stage('Test') {
+    stage('Build') {
       steps {
-        sh 'yarn test'
+        sh 'ls -al'
+          sh 'jenkins_scripts/build.sh'
       }
     }
     stage('Deploy') {
       steps {
-        sh 'jenkins_scripts/build.sh'
+        sshCommand remote: remote, command: 'ls -al build'
+        sshPut remote: remote, from: 'front.tar', into: 'build/'
+        sshCommand remote: remote, command: 'ls -al build'
+        sshCommand remote: remote, command: './deploy.sh'
       }
     }
     stage('dingTalk Notification') {
