@@ -6,20 +6,18 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        echo 'Building..'
-          sh 'env'
-          sh 'jenkins_scripts/build.sh'
+        sh 'env'
+        sh 'yarn'
       }
     }
     stage('Test') {
       steps {
-        echo 'Testing..'
-          sh 'yarn test'
+        sh 'yarn test'
       }
     }
     stage('Deploy') {
       steps {
-        echo 'Deploying....'
+        sh 'jenkins_scripts/build.sh'
       }
     }
     stage('dingTalk Notification') {
