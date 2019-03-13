@@ -19,6 +19,7 @@ RUN yarn build
 FROM base
 COPY ./package.json /app/package.json
 COPY ./yarn.lock /app/yarn.lock
+COPY ./server.js /app/server.js
 RUN yarn install --ignore-engines --pure-lockfile --production
 
 COPY --from=builder /app/.next /app/.next
